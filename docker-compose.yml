@@ -6,29 +6,29 @@ services:
     container_name: ms_app
     build: .
     ports:
-    - 8000:5000
+      - 8000:5000
     volumes:
-    - ./:/ms
+      - ./:/app
     environment:
-    - FLASK_ENV=development
+      - FLASK_ENV=development
     depends_on:
-    - ms_db
+      - ms_db
     networks:
-    - msNet
+      - msNet
 
   ms_db:
     container_name: ms_db
     image: postgres
     ports:
-    - 5432:5432
+      - 5432:5432
     volumes:
-    - msAppVol:/var/lib/postgresql/data
+      - msAppVol:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${DB_NAME:-ms_app}
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
     networks:
-    - msNet
+      - msNet
 
 volumes:
   msAppVol:

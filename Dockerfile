@@ -22,4 +22,3 @@ RUN chmod a+rx ./start.sh
 
 EXPOSE 5000
 CMD ./start.sh
-
