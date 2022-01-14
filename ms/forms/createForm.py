@@ -1,10 +1,8 @@
-from typing import Callable, Type
-
-from flask import Request
-from .form import FormRequest
+from typing import Callable
+from flaskFormRequest import FormRequest
 
 
 class CreateForm(FormRequest):
-    def rules(self, request: Type[Request]) -> dict[str, Callable]:
+    def rules(self) -> dict[str, Callable]:
         return {
         }
